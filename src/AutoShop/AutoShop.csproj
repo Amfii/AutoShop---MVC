@@ -1,0 +1,96 @@
+﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\css\bootstrap.css" />
+    <Content Include="wwwroot\css\bootstrap.min.css" />
+    <Content Include="wwwroot\css\shop-homepage.css" />
+    <Content Include="wwwroot\css\shop-item.css" />
+    <Content Include="wwwroot\css\site.css" />
+    <Content Include="wwwroot\css\site.min.css" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="wwwroot\images\Audi.png" />
+    <Content Include="wwwroot\images\BMW.png" />
+    <Content Include="wwwroot\images\cars\1002\1.jpg" />
+    <Content Include="wwwroot\images\cars\1002\2.jpg" />
+    <Content Include="wwwroot\images\cars\1003\nydn-bg-2016-toyota-yaris-se-photo.jpg" />
+    <Content Include="wwwroot\images\cars\1004\2014-audi-a4-11_1600x0w.jpg" />
+    <Content Include="wwwroot\images\cars\1004\2014-audi-A4-dash-view.jpg" />
+    <Content Include="wwwroot\images\cars\1004\2014-Audi-A4-White.jpg" />
+    <Content Include="wwwroot\images\cars\1004\maxresdefault (1).jpg" />
+    <Content Include="wwwroot\images\cars\1005\100_0007.JPG" />
+    <Content Include="wwwroot\images\cars\1006\BMW_530d_(F10)_rear_20100410.jpg" />
+    <Content Include="wwwroot\images\cars\1006\image-of-bmw-530i.jpg" />
+    <Content Include="wwwroot\images\cars\1006\new BMW 530d Touring3.jpg" />
+    <Content Include="wwwroot\images\cars\1006\photo-of-bmw-530.jpg" />
+    <Content Include="wwwroot\images\cars\1008\2007-audi-a8-4_600x0w.jpg" />
+    <Content Include="wwwroot\images\cars\1008\861349830.jpg" />
+    <Content Include="wwwroot\images\cars\1009\2013_opel_insignia_opc_australia_03-0212-920x544.jpg" />
+    <Content Include="wwwroot\images\cars\1009\OPEL-Insignia-Sedan-5196_13.jpg" />
+    <Content Include="wwwroot\images\cars\1010\opel_vectra_a1260435366b3119646_4_orig.jpg" />
+    <Content Include="wwwroot\images\cars\1010\Opel_Vectra_front_20080116.jpg" />
+    <Content Include="wwwroot\images\cars\1011\2004_opel_vectra-pic-8877083146638573321-640x480.jpeg" />
+    <Content Include="wwwroot\images\cars\1011\maxresdefault (3).jpg" />
+    <Content Include="wwwroot\images\cars\1011\opel-vectra-2004-14.jpg" />
+    <Content Include="wwwroot\images\cars\1012\maxresdefault (2).jpg" />
+    <Content Include="wwwroot\images\cars\1012\Opel_Mokka_2013_(11403581016).jpg" />
+    <Content Include="wwwroot\images\cars\1012\Opel_Mokka_2013_(11403630154).jpg" />
+    <Content Include="wwwroot\images\cars\1013\OPELSignum-3054_3.jpg" />
+    <Content Include="wwwroot\images\cars\1013\OPELSignum-3054_4.jpg" />
+    <Content Include="wwwroot\images\cars\1013\OPELSignum-3054_7.jpg" />
+    <Content Include="wwwroot\images\cars\1014\2 (1).jpg" />
+    <Content Include="wwwroot\images\cars\1014\2016-Toyota-Avensis-Touring-Sports-2-1024x576.jpg" />
+    <Content Include="wwwroot\images\cars\1014\maxresdefault.jpg" />
+    <Content Include="wwwroot\images\cars\3\04-review-2009-audi-32-a4.jpg" />
+    <Content Include="wwwroot\images\cars\3\2009_audi_a4_dashboard.jpg" />
+    <Content Include="wwwroot\images\Opel.png" />
+    <Content Include="wwwroot\images\promo1.jpg" />
+    <Content Include="wwwroot\images\promo2.jpg" />
+    <Content Include="wwwroot\images\promo3.jpg" />
+    <Content Include="wwwroot\images\Toyota.png" />
+    <Content Include="wwwroot\js\bootstrap.js" />
+    <Content Include="wwwroot\js\site.js" />
+    <Content Include="wwwroot\js\site.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\shop-homepage.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap_.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\jquery.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+  </ItemGroup>
+</Project>

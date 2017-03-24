@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "AutoShop Item";
+    var car = ViewData["Car"] as Car;
+    string[] carImages = null   ;
+    if (ViewData["CarImages"] != null) {
+        carImages = (ViewData["CarImages"] as IEnumerable<string>).ToArray();
+    }
+}
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="thumbnail">
+                @if (carImages != null)
+                {
+                    <div class="row carousel-holder">
+                        <div class="col-md-12">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    @for (int i = 0; i < carImages.Length; i++)
+                                    {
+                                        @if (i == 0)
+                                        {
+                                            <li data-target="#carousel-example-generic" data-slide-to="@i" class="active"></li>
+                                        }
+                                        else
+                                        {
+                                            <li data-target="#carousel-example-generic" data-slide-to="@i"></li>
+                                        }
+                                    }
+                                </ol>
+                                <div class="carousel-inner">
+                                    @for (int i = 0; i < carImages.Length; i++)
+                                    {
+                                        @if (i == 0)
+                                        {
+                                            <div class="item active">
+                                                <img class="slide-image" src="~/images/cars/@car.CarID/@carImages[i]" alt="">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="item">
+                                                <img class="slide-image" src="~/images/cars/@car.CarID/@carImages[i]" alt="">
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="caption-full">
+                    <h4 class="pull-right">$@car.CarPrice</h4>
+                    <h4>
+                        <a href="#">@car.CarManufacturer @car.CarName</a>
+                    </h4>
+                    <p>@car.CarDescription</p>
+                    <p>
+                        <h3>Specifications</h3>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Manufacturer</td>
+                                    <td>
+                                        @car.CarManufacturer
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Car name</td>
+                                    <td>
+                                        @car.CarName
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Color</td>
+                                    <td>
+                                        @car.CarColor
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Engine</td>
+                                    <td>
+                                        @car.CarEngine
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Year</td>
+                                    <td>
+                                        @car.CarYear
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+                <a class="btn btn-success" href="~/Home/Contact">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
