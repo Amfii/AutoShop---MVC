@@ -1,7 +1,8 @@
-﻿@{
+﻿@model Car
+
+@{
     ViewData["Title"] = "AutoShop Item";
-    var car = ViewData["Car"] as Car;
-    string[] carImages = null   ;
+    string[] carImages = null;
     if (ViewData["CarImages"] != null) {
         carImages = (ViewData["CarImages"] as IEnumerable<string>).ToArray();
     }
@@ -36,13 +37,13 @@
                                         @if (i == 0)
                                         {
                                             <div class="item active">
-                                                <img class="slide-image" src="~/images/cars/@car.CarID/@carImages[i]" alt="">
+                                                <img class="slide-image" src="~/images/cars/@Model.CarID/@carImages[i]" alt="">
                                             </div>
                                         }
                                         else
                                         {
                                             <div class="item">
-                                                <img class="slide-image" src="~/images/cars/@car.CarID/@carImages[i]" alt="">
+                                                <img class="slide-image" src="~/images/cars/@Model.CarID/@carImages[i]" alt="">
                                             </div>
                                         }
                                     }
@@ -58,11 +59,11 @@
                     </div>
                 }
                 <div class="caption-full">
-                    <h4 class="pull-right">$@car.CarPrice</h4>
+                    <h4 class="pull-right">$@Model.CarPrice</h4>
                     <h4>
-                        <a href="#">@car.CarManufacturer @car.CarName</a>
+                        <a href="#">@Model.CarManufacturer @Model.CarName</a>
                     </h4>
-                    <p>@car.CarDescription</p>
+                    <p>@Model.CarDescription</p>
                     <p>
                         <h3>Specifications</h3>
                         <table>
@@ -70,31 +71,31 @@
                                 <tr>
                                     <td>Manufacturer</td>
                                     <td>
-                                        @car.CarManufacturer
+                                        @Model.CarManufacturer
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Car name</td>
                                     <td>
-                                        @car.CarName
+                                        @Model.CarName
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Color</td>
                                     <td>
-                                        @car.CarColor
+                                        @Model.CarColor
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Engine</td>
                                     <td>
-                                        @car.CarEngine
+                                        @Model.CarEngine
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Year</td>
                                     <td>
-                                        @car.CarYear
+                                        @Model.CarYear
                                     </td>
                                 </tr>
                             </tbody>

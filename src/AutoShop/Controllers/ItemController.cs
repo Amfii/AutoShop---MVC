@@ -15,27 +15,34 @@ namespace AutoShop.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
-
-        public IActionResult Index(int itemId = 0)
+        public IActionResult Index(int? itemId)
         {
+            if (itemId == null)
+            {
+                return NotFound();
+            }
+
             using (var db = new AutoContext())
             {
                 var car = db.Car
-                    .Where(b => b.CarID == itemId).ToList();
-                if (car != null && car.Count > 0) {     // car is in database
-                    ViewData["Car"] = car[0];
-                    IEnumerable<string> imageNames;     // car images
-                    try {   // Get all car images
-                        imageNames = Directory.EnumerateFiles(_hostingEnvironment.WebRootPath + ("/images/cars/" + car[0].CarID + "/")).Select(file => Path.GetFileName(file));
-                        ViewData["CarImages"] = imageNames;
-                    } catch
-                    {
-                        imageNames = null;              // car has no images
-                        ViewData["CarImages"] = imageNames;
-                    }
+                    .SingleOrDefault(b => b.CarID == itemId);
+
+                if (car == null)
+                {
+                    return NotFound();
                 }
+
+                IEnumerable<string> imageNames;     // car images
+                try {   // Get all car images
+                    imageNames = Directory.EnumerateFiles(_hostingEnvironment.WebRootPath + ("/images/cars/" + car.CarID + "/")).Select(file => Path.GetFileName(file));
+                    ViewData["CarImages"] = imageNames;
+                } catch {
+                    imageNames = null;              // car has no images
+                    ViewData["CarImages"] = imageNames;
+                }
+
+                return View(car);
             }
-            return View();
         }
     }
 }

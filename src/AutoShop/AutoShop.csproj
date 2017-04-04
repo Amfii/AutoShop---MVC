@@ -58,7 +58,6 @@
     <Content Include="wwwroot\images\promo2.jpg" />
     <Content Include="wwwroot\images\promo3.jpg" />
     <Content Include="wwwroot\images\Toyota.png" />
-    <Content Include="wwwroot\js\bootstrap.js" />
     <Content Include="wwwroot\js\site.js" />
     <Content Include="wwwroot\js\site.min.js" />
     <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
@@ -67,10 +66,8 @@
     <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
     <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
     <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
-    <Content Include="wwwroot\lib\bootstrap\dist\css\shop-homepage.css" />
     <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
     <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
-    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap_.js" />
     <Content Include="wwwroot\lib\bootstrap\dist\js\jquery.js" />
   </ItemGroup>
   <ItemGroup>

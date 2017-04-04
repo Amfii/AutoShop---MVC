@@ -8,23 +8,27 @@ namespace AutoShop.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index(string filter = "All")
+
+        public IActionResult Index(string filter, int page = 1)
         {
             using (var db = new AutoContext())
             {
-                var cars = db.Car
-                    .OrderByDescending(b => b.CarYear)
-                    .ToList();
-                var manufacturers = db.Manufacturer
-                    .OrderBy(b => b.ManufacturerName)
-                    .ToList();
-                ViewData["Cars"] = cars;
-                ViewData["Manufacturers"] = manufacturers;
+                ViewData["Page"] = page;
+                object cars;
+                if (string.IsNullOrEmpty(filter))
+                {
+                    cars = db.Car
+                        .OrderByDescending(b => b.CarYear)
+                        .ToList();
+                } else
+                {
+                    cars = db.Car
+                        .Where(b => b.CarManufacturer.Equals(filter))
+                        .OrderByDescending(b => b.CarYear)
+                        .ToList();
+                }
+                return View(cars);
             }
-            ViewData["Shop Name"] = "AutoList";
-            ViewData["Filter"] = filter;
-
-            return View();
         }
         // GET: Home/About/
         public IActionResult About()
