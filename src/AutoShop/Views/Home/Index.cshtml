@@ -3,13 +3,26 @@
 @{
     ViewData["Title"] = "Home Page";
     int page = (int)ViewData["Page"];
-    int itemsPerPage = 12;
+    int itemsPerPage = (int)ViewData["ItemsPerPage"];
 
     int pages = Model.Count / itemsPerPage;
 
     if ((Model.Count % itemsPerPage) > 0)
     {
         pages++;
+    }
+
+    int firstPageIndex = page - 5;
+    int lastPageIndex = page + 5;
+
+    if (firstPageIndex < 1)
+    {
+        firstPageIndex = 1;
+    }
+
+    if (lastPageIndex > pages)
+    {
+        lastPageIndex = pages;
     }
 }
 
@@ -51,6 +64,51 @@
                 </div>
             }
             <div class="row">
+                <div class="options" align="right">
+                    <span>Per page</span>
+                    <select id="perPage" onchange="window.location.href = '?perPage='+document.getElementById('perPage').value;">
+                        @if (itemsPerPage == 9)
+                        {
+                            <option selected value="9">9</option>
+                        }
+                        else
+                        {
+                            <option value="9">9</option>
+                        }
+                        @if (itemsPerPage == 12)
+                        {
+                            <option selected value="12">12</option>
+                        }
+                        else
+                        {
+                            <option value="12">12</option>
+                        }
+                        @if (itemsPerPage == 18)
+                        {
+                            <option selected value="18">18</option>
+                        }
+                        else
+                        {
+                            <option value="18">18</option>
+                        }
+                        @if (itemsPerPage == 24)
+                        {
+                            <option selected value="24">24</option>
+                        }
+                        else
+                        {
+                            <option value="24">24</option>
+                        }
+                        @if (itemsPerPage == 30)
+                        {
+                            <option selected value="30">30</option>
+                        }
+                        else
+                        {
+                            <option value="30">30</option>
+                        }
+                    </select><br /><br />
+                </div>
                 @for (int i = page * itemsPerPage - itemsPerPage; (i < page * itemsPerPage) && (i < Model.Count); i++)
                 {
                     <div class="col-sm-4 col-lg-4 col-md-4">
@@ -72,40 +130,39 @@
                         <tr>
                             <td>
                                 @{
-                                    if (page > 1) {
-                                        <a href="?page=@(page - 1)">Previous</a>
-                                    } else {
+                                    if (page > 1)
+                                    {
+                                        <a href="?page=@(page - 1)&perPage=@itemsPerPage">Previous</a>
+                                    }
+                                    else
+                                    {
                                         <span>Previous</span>
                                     }
                                 }
                             </td>
                             <td>
                                 @{
-                                    int firstPageIndex = page - 5;
-                                    int lastPageIndex = page + 5;
-
-                                    if (firstPageIndex < 1) {
-                                        firstPageIndex = 1;
-                                    }
-
-                                    if (lastPageIndex > pages) {
-                                        lastPageIndex = pages;
-                                    }
-
-                                    for (int i = firstPageIndex; i <= lastPageIndex; i++) {
-                                        if (i == page) {
+                                    for (int i = firstPageIndex; i <= lastPageIndex; i++)
+                                    {
+                                        if (i == page)
+                                        {
                                             @i
-                                        } else {
-                                            <a href="?page=@i">@i</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="?page=@i&perPage=@itemsPerPage">@i</a>
                                         }
                                     }
                                 }
                             </td>
                             <td>
                                 @{
-                                    if (page < pages) {
-                                        <a href="?page=@(page + 1)">Next</a>
-                                    } else {
+                                    if (page < pages)
+                                    {
+                                        <a href="?page=@(page + 1)&perPage=@itemsPerPage">Next</a>
+                                    }
+                                    else
+                                    {
                                         <span>Next</span>
                                     }
                                 }

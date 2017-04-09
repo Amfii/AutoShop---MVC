@@ -9,11 +9,12 @@ namespace AutoShop.Controllers
     public class HomeController : Controller
     {
 
-        public IActionResult Index(string filter, int page = 1)
+        public IActionResult Index(string filter, int page = 1, int perPage = 9)
         {
             using (var db = new AutoContext())
             {
                 ViewData["Page"] = page;
+                ViewData["ItemsPerPage"] = perPage;
                 object cars;
                 if (string.IsNullOrEmpty(filter))
                 {
